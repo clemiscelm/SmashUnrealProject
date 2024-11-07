@@ -11,12 +11,26 @@
  */
 
 class AArenaPlayerStart;
+class ASmashCharacter;
 UCLASS()
 class SMASHUE_API AMatchGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 public:
 	virtual void BeginPlay() override;
+protected:
+	UPROPERTY(EditAnywhere)
+	TArray<ASmashCharacter*> CharactersInsideArena;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<ASmashCharacter> SmashCharacterClassP0;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<ASmashCharacter> SmashCharacterClassP1;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<ASmashCharacter> SmashCharacterClassP2;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<ASmashCharacter> SmashCharacterClassP3;
 private:
 	void FindPlayerStartActorsInArena(TArray<AArenaPlayerStart*>& ResultActors);
+	void SpawnCharacters(const TArray<AArenaPlayerStart*>& SpawnPoints);
+	TSubclassOf<ASmashCharacter> GetSmashCharacterClassFromInputType(EAutoReceiveInput::Type InputType) const;
 };
