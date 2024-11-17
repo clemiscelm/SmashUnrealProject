@@ -9,8 +9,18 @@ ESmashCharacterStateID USmashCharacterStateWalk::GetStateID()
 	return ESmashCharacterStateID::Walk;
 }
 
-void USmashCharacterStateWalk::StateInit(USmashCharacterStateMachine* InStateMachine)
+
+
+void USmashCharacterStateWalk::StateEnter(ESmashCharacterStateID PreviousStateID)
 {
-	Super::StateInit(InStateMachine);
+	Super::StateEnter(PreviousStateID);
+	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Cyan, TEXT("Enter StateWalk"));
+}
+
+
+void USmashCharacterStateWalk::StateExit(ESmashCharacterStateID NextStateID)
+{
+	Super::StateExit(NextStateID);
+	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Cyan, TEXT("Exit StateWalk"));
 }
 
