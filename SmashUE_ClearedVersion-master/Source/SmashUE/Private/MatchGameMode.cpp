@@ -71,7 +71,3 @@ void AMatchGameMode::SpawnCharacters(const TArray<AArenaPlayerStart*>& SpawnPoin
 		CharactersInsideArena.Add(SmashCharacter);
 	}
 }
-
-
-
-

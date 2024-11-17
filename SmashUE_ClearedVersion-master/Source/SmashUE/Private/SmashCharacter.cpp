@@ -3,7 +3,9 @@
 
 #include "SmashCharacter.h"
 
-// Sets default values
+#include "SmashUE/SmashCharacterStateMachine.h"
+
+	// Sets default values
 ASmashCharacter::ASmashCharacter()
 {
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -14,6 +16,8 @@ ASmashCharacter::ASmashCharacter()
 void ASmashCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	CreateMachine();
+	InitStatMachine();
 	
 }
 
@@ -47,5 +51,16 @@ void ASmashCharacter::RotateMeshUsingOrientX() const
 	GetMesh()->SetRelativeRotation(Rotation);
 }
 
+
+void ASmashCharacter::InitStatMachine()
+{
+	if(StateMachine == nullptr) return;
+	StateMachine->Init(this);
+}
+
+void ASmashCharacter::CreateMachine()
+{
+	//StateMachine = NewObject<USmashCharacterStateMachine>(this);
+}
 
 
