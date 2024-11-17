@@ -1,9 +1,9 @@
 ﻿	// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "SmashCharacter.h"
+#include "Character/SmashCharacter.h"
 
-#include "SmashUE/SmashCharacterStateMachine.h"
+#include "SmashUE/Public/Character/States/SmashCharacterStateMachine.h"
 
 	// Sets default values
 ASmashCharacter::ASmashCharacter()
@@ -60,7 +60,7 @@ void ASmashCharacter::InitStatMachine()
 
 void ASmashCharacter::CreateMachine()
 {
-	//StateMachine = NewObject<USmashCharacterStateMachine>(this);
+	StateMachine = NewObject<USmashCharacterStateMachine>(this);
 }
 
 

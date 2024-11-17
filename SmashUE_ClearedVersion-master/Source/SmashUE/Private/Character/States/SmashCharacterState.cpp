@@ -3,7 +3,7 @@
 
 #include "SmashCharacterState.h"
 
-#include "SmashUE/SmashCharacterStateMachine.h"
+#include "SmashUE/Public/Character/States/SmashCharacterStateMachine.h"
 
 
 // Sets default values for this component's properties
@@ -25,7 +25,12 @@ void USmashCharacterState::StateInit(USmashCharacterStateMachine* InStateMachine
 {
 	StateMachine = InStateMachine;
 	Character = InStateMachine->GetCharacter();
-	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Magenta, FString::Printf(TEXT("Init State %d"), GetStateID()));
+	
+	GEngine->AddOnScreenDebugMessage(
+		-1,
+		3.f,
+		FColor::Magenta,
+		FString::Printf(TEXT("Init State %d"), GetStateID()));
 }
 
 

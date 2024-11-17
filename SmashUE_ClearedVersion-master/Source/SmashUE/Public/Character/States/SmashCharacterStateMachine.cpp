@@ -2,13 +2,15 @@
 
 
 #include "SmashCharacterStateMachine.h"
-#include "SmashCharacterState.h"
-#include "SmashCharacter.h"
+#include "Character/States/SmashCharacterState.h"
+#include "Character/SmashCharacter.h"
 
 
 void USmashCharacterStateMachine::Init(ASmashCharacter* InCharacter)
 {
 	Character = InCharacter;
+	FindStates();
+	InitStates();
 }
 
 ASmashCharacter* USmashCharacterStateMachine::GetCharacter() const
@@ -22,7 +24,7 @@ void USmashCharacterStateMachine::FindStates()
 	{
 		USmashCharacterState* State = Cast<USmashCharacterState>(StateComponent);
 		if (State == nullptr)continue;
-		if(State->GetStateID() != ESmashCharacterStateID::None) continue;
+		if(State->GetStateID() == ESmashCharacterStateID::None) continue;
 		
 		AllStates.Add(State);
 		
@@ -35,6 +37,5 @@ void USmashCharacterStateMachine::InitStates()
 	{
 		State->StateInit(this);
 	}
-	FindStates();
-	InitStates();
+	
 }

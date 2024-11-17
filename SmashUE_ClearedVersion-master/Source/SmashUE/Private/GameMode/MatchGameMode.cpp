@@ -1,13 +1,13 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "MatchGameMode.h"
+#include "GameMode/MatchGameMode.h"
 
 #include "Editor.h"
 #include "Arena/ArenaPlayerStart.h"
 #include "Kismet/GameplayStatics.h"
-#include "SmashCharacter.h"
-#include "ArenaSettings.h"
+#include "Character/SmashCharacter.h"
+#include "Arena/ArenaSettings.h"
 
 void AMatchGameMode::FindPlayerStartActorsInArena(TArray<AArenaPlayerStart*>& ResultActors)
 {
@@ -65,9 +65,10 @@ void AMatchGameMode::SpawnCharacters(const TArray<AArenaPlayerStart*>& SpawnPoin
 		if (SmashCharacterClass == nullptr) continue;
 		ASmashCharacter* SmashCharacter = GetWorld()->SpawnActor<ASmashCharacter>(SmashCharacterClass, SpawnPoint->GetTransform());
 		if(SmashCharacter == nullptr) continue;
+
 		SmashCharacter->AutoPossessPlayer = SpawnPoint->AutoReceiveInput;
 		SmashCharacter->SetOrientX(SpawnPoint->GetStartOrientX());
-		SmashCharacter->FinishSpawning(SpawnPoint->GetTransform());
+		//SmashCharacter->FinishSpawning(SpawnPoint->GetTransform());
 		CharactersInsideArena.Add(SmashCharacter);
 	}
 }
