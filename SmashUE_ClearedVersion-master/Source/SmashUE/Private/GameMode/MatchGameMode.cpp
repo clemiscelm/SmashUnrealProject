@@ -8,6 +8,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Character/SmashCharacter.h"
 #include "Arena/ArenaSettings.h"
+#include "Character/SmashCharacterSettings.h"
 
 void AMatchGameMode::FindPlayerStartActorsInArena(TArray<AArenaPlayerStart*>& ResultActors)
 {
@@ -71,4 +72,18 @@ void AMatchGameMode::SpawnCharacters(const TArray<AArenaPlayerStart*>& SpawnPoin
 		//SmashCharacter->FinishSpawning(SpawnPoint->GetTransform());
 		CharactersInsideArena.Add(SmashCharacter);
 	}
+}
+
+USmashCharacterInputData* AMatchGameMode::LoadInputDataFromConfig()
+{
+	const USmashCharacterSettings* CharacterSettings = GetDefault<USmashCharacterSettings>();
+	if(CharacterSettings == nullptr) return nullptr;
+	return CharacterSettings->InputData.LoadSynchronous();
+}
+
+UInputMappingContext* AMatchGameMode::LoadInputMappingContextFromConfig()
+{
+	const USmashCharacterSettings* CharacterSettings = GetDefault<USmashCharacterSettings>();
+	if(CharacterSettings == nullptr) return nullptr;
+	return CharacterSettings->InputMappingContext.LoadSynchronous();
 }
