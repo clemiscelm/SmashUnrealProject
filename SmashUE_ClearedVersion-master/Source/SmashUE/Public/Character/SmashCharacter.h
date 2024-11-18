@@ -44,9 +44,12 @@ protected:
 public:
 	void CreateMachine();
 	void InitStatMachine();
-
+	void TickStateMachine(float DeltaTime) const;
+	void ChangeAnimation(UAnimMontage* Montage) ;
+	
 protected:
 	UPROPERTY(BlueprintReadOnly)
 	TObjectPtr<USmashCharacterStateMachine> StateMachine;
+	
 #pragma endregion
 };

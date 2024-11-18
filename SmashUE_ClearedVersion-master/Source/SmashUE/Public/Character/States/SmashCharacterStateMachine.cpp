@@ -70,4 +70,11 @@ void USmashCharacterStateMachine::ChangeState(ESmashCharacterStateID NexStateID)
 	}
 }
 
+void USmashCharacterStateMachine::Tick(float DeltaTime)
+{
+	if(CurrentState == nullptr) return;
+	
+	CurrentState->StateTick(DeltaTime);
+}
+
 

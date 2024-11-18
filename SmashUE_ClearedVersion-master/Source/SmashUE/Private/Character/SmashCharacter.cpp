@@ -3,6 +3,7 @@
 
 #include "Character/SmashCharacter.h"
 
+#include "Character/States/SmashCharacterStateID.h"
 #include "SmashUE/Public/Character/States/SmashCharacterStateMachine.h"
 
 	// Sets default values
@@ -25,6 +26,7 @@ void ASmashCharacter::BeginPlay()
 void ASmashCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	TickStateMachine(DeltaTime);
 	RotateMeshUsingOrientX();
 }
 
@@ -62,5 +64,20 @@ void ASmashCharacter::CreateMachine()
 {
 	StateMachine = NewObject<USmashCharacterStateMachine>(this);
 }
+
+void ASmashCharacter::TickStateMachine(float DeltaTime) const
+{
+	if(StateMachine == nullptr) return;
+	StateMachine->Tick(DeltaTime);
+}
+
+void ASmashCharacter::ChangeAnimation(UAnimMontage* Montage) 
+{
+	if(Montage == nullptr) return;
+	this->PlayAnimMontage(Montage);
+}
+
+
+
 
 
