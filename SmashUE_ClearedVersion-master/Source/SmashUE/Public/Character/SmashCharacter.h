@@ -65,4 +65,15 @@ public:
 protected:
 	void SetupMappingContextIntoController() const;
 #pragma endregion
+
+#pragma region Input Move X
+public:
+    float GetInputMoveX();
+protected:
+	UPROPERTY()
+	float InputMoveX = 0.f;
+private:
+	void BindInputMoveXAxisAndActions(UEnhancedInputComponent* EnhancedInputComponent);
+	void OnInputMoveX(const FInputActionValue& InputActionValue);
+#pragma endregion
 };
