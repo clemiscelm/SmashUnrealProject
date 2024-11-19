@@ -10,6 +10,7 @@
 /**
  * 
  */
+class FSmashCharacterInputData;
 UCLASS()
 class SMASHUE_API USmashCharacterInputData : public UDataAsset
 {

@@ -11,9 +11,9 @@
 /**
  * 
  */
-class UInputMappingContext;
-UCLASS(Config=Game, DefaultConfig, meta = (DisplayName = "Smash Character Settings"))
-class SMASHUE_API USmashCharacterSettings : public UObject
+//class UInputMappingContext;
+UCLASS(Config=Game, DefaultConfig, meta=(DisplayName = "Smash Character Settings"))
+class SMASHUE_API USmashCharacterSettings : public UDeveloperSettings
 {
 	GENERATED_BODY()
 	

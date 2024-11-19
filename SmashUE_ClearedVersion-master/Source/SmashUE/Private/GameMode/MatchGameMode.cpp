@@ -61,7 +61,7 @@ TSubclassOf<ASmashCharacter> AMatchGameMode::GetSmashCharacterClassFromInputType
 
 void AMatchGameMode::SpawnCharacters(const TArray<AArenaPlayerStart*>& SpawnPoints)
 {
-	UsmashCharacterInputData* InputData = LoadInputDataFromConfig();
+	USmashCharacterInputData* InputData = LoadInputDataFromConfig();
 	UInputMappingContext* InputMappingContext = LoadInputMappingContextFromConfig();
 	for(AArenaPlayerStart* SpawnPoint : SpawnPoints)
 	{
