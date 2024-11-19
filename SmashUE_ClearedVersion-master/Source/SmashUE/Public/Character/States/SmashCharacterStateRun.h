@@ -18,6 +18,7 @@ protected:
 	virtual void StateEnter(ESmashCharacterStateID PreviousStateID) override;
 	virtual void StateExit(ESmashCharacterStateID NextStateID) override;
 	virtual void StateTick(float DeltaTime) override;
+	void RunMouvement(float DeltaTime);
 	UPROPERTY(EditAnywhere)
 	float MoveSpeedMax = 1000.f;
 };

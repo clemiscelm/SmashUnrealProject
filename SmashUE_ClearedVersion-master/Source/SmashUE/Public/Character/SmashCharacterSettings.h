@@ -11,6 +11,7 @@
 /**
  * 
  */
+class UInputMappingContext;
 UCLASS(Config=Game, DefaultConfig, meta = (DisplayName = "Smash Character Settings"))
 class SMASHUE_API USmashCharacterSettings : public UObject
 {

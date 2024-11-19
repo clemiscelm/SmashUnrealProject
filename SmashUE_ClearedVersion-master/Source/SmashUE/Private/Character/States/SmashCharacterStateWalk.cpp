@@ -17,9 +17,7 @@ void USmashCharacterStateWalk::StateEnter(ESmashCharacterStateID PreviousStateID
 {
 
 	Super::StateEnter(PreviousStateID);
-	FVector ForwardVector = FVector(Character->GetOrientX(),0,0);
-	FVector NewLocation = Character->GetActorLocation() + (ForwardVector * MoveSpeedMax);
-	Character->SetActorLocation(NewLocation);
+
 	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Cyan, TEXT("Enter StateWalk"));
 }
 
@@ -33,5 +31,12 @@ void USmashCharacterStateWalk::StateExit(ESmashCharacterStateID NextStateID)
 void USmashCharacterStateWalk::StateTick(float DeltaTime)
 {
 	Super::StateTick(DeltaTime);
+	WalkMouvement(DeltaTime);
 	GEngine->AddOnScreenDebugMessage(-1, 0.1f, FColor::Green, TEXT("Tick StateWalk"));
+}
+
+void USmashCharacterStateWalk::WalkMouvement(float DeltaTime)
+{
+	FVector ForwardVector = FVector(Character->GetOrientX(),0,0);
+	Character->AddMovementInput(ForwardVector, MoveSpeedMax * DeltaTime);
 }

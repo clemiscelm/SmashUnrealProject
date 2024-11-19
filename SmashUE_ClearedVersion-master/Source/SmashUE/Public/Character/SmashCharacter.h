@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "InputMappingContext.h"
+#include "SmashCharacterInputData.h"
 #include "GameFramework/Character.h"
 #include "SmashCharacter.generated.h"
 

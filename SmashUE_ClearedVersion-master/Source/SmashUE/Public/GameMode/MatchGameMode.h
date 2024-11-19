@@ -14,6 +14,7 @@
 
 class AArenaPlayerStart;
 class ASmashCharacter;
+
 UCLASS()
 class SMASHUE_API AMatchGameMode : public AGameModeBase
 {
